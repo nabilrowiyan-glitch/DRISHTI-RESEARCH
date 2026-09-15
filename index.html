@@ -1,99 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ELEKTORALIS — Prototype</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DRISHTI RESEARCH — Research • Survey • Public Insight</title>
+<meta name="description" content="DRISHTI RESEARCH — Research, Survey and Public Insight">
 <style>
-:root{--navy:#08294d;--blue:#1476d4;--red:#e53935;--bg:#f5f8fc;--text:#17243a;--muted:#6b7890;--line:#e1e8f0;--card:#fff}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
-button,select,input{font:inherit}.app{min-height:100vh}.top{height:66px;background:var(--navy);color:#fff;display:flex;align-items:center;padding:0 5%;gap:30px;position:sticky;top:0;z-index:5}.brand{font-weight:800;letter-spacing:.5px;font-size:18px}.brand small{display:block;font-weight:400;font-size:10px;opacity:.8}.nav{display:flex;gap:22px;margin-left:auto}.nav button{background:none;border:0;color:#dce8f5;cursor:pointer}.nav button.active{color:#fff;font-weight:700}.login{border:1px solid #9fb5cd;border-radius:22px;padding:9px 16px;background:#fff;color:var(--navy);cursor:pointer}
-.page{display:none}.page.active{display:block}.hero{min-height:430px;padding:75px 8%;display:flex;align-items:center;gap:50px;background:linear-gradient(120deg,#092c50,#145c91);color:#fff}.hero h1{font-size:46px;line-height:1.08;margin:0 0 18px;max-width:650px}.hero p{max-width:610px;color:#dbe8f4;font-size:16px;line-height:1.7}.actions{display:flex;gap:12px;margin-top:25px}.primary,.secondary{padding:13px 20px;border-radius:8px;border:0;cursor:pointer;font-weight:700}.primary{background:#ff4b4b;color:white}.secondary{background:white;color:var(--navy)}.survey-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:24px;width:390px}.survey-card h3{margin-top:0}.stat{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.15)}
-.features{padding:35px 8%;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;background:#fff}.feature,.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}.feature h3{margin:8px 0}.feature p{color:var(--muted);font-size:13px;line-height:1.5}.container{max-width:1200px;margin:auto;padding:35px 5%}.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.title h2{margin:0}.muted{color:var(--muted)}.grid{display:grid;gap:18px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.metric strong{font-size:27px;display:block;margin-top:7px}.up{color:#149447;font-size:12px}.bar{height:9px;background:#edf1f6;border-radius:10px;margin:9px 0}.bar i{display:block;height:100%;background:var(--blue);border-radius:10px}.bar.red i{background:var(--red)}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--muted);font-weight:600}.tag{padding:4px 8px;border-radius:15px;background:#edf6ff;color:#1670c4;font-size:11px}.side-layout{display:grid;grid-template-columns:230px 1fr;min-height:calc(100vh - 66px)}.side{background:var(--navy);color:#d8e5f1;padding:25px 14px}.side button{display:block;width:100%;text-align:left;background:none;border:0;color:inherit;padding:12px;border-radius:7px;margin-bottom:4px;cursor:pointer}.side button.active,.side button:hover{background:#17456e;color:#fff}.dash{padding:30px;max-width:1300px;width:100%;margin:auto}.chart{height:210px;display:flex;align-items:end;gap:13px;padding:15px}.col{flex:1;background:#d6e8fa;border-radius:6px 6px 0 0;min-height:20px;position:relative}.col span{position:absolute;bottom:-24px;font-size:10px;color:var(--muted);width:100%;text-align:center}.form-wrap{max-width:900px;margin:auto}.steps{display:flex;gap:8px;margin-bottom:20px}.step{flex:1;padding:12px;border-radius:8px;background:#eaf0f7;color:#63748a;font-size:12px}.step.active{background:#e5f2ff;color:#096bc3;font-weight:700}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}.field input,.field select{width:100%;padding:12px;border:1px solid var(--line);border-radius:7px;background:white}.option{border:1px solid var(--line);padding:14px;border-radius:8px;margin:9px 0;cursor:pointer}.option:hover{border-color:var(--blue);background:#f4f9ff}.candidate{display:flex;gap:18px;align-items:center}.avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(145deg,#eee,#cdd8e6);display:flex;align-items:center;justify-content:center;font-weight:800;color:#567}.notice{padding:14px;background:#edf7ff;border-left:4px solid var(--blue);font-size:13px;color:#40536a;border-radius:5px}
-@media(max-width:800px){.nav{display:none}.hero{flex-direction:column;padding:45px 6%}.hero h1{font-size:35px}.survey-card{width:100%}.features,.g4,.g2,.form-grid{grid-template-columns:1fr}.side-layout{grid-template-columns:1fr}.side{display:none}.dash{padding:20px}}
+:root{--navy:#0b1f38;--blue:#2563eb;--cyan:#1d9bf0;--ink:#172033;--muted:#667085;--bg:#f5f7fb;--line:#e5e9f0;--white:#fff;--green:#16855b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+.container{max-width:1180px;margin:auto;padding:0 24px}a{text-decoration:none;color:inherit}
+nav{height:74px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;position:sticky;top:0;z-index:50}
+.navin{width:100%;display:flex;align-items:center;justify-content:space-between}.logo{font-size:25px;font-weight:900;letter-spacing:3px;color:var(--navy)}.logo small{display:block;font-size:8px;letter-spacing:2.2px;color:#7b8492;margin-top:-4px}
+.links{display:flex;align-items:center;gap:23px;font-size:13px;color:#475467}.links a:hover{color:var(--blue)}
+.btn{border:0;border-radius:9px;padding:11px 17px;background:var(--blue);color:#fff;font-weight:800;cursor:pointer}.btn.light{background:#edf4ff;color:#174ea6}.btn.dark{background:var(--navy)}
+.hero{background:linear-gradient(125deg,#081a31,#103963 58%,#1d63b6);color:#fff;padding:92px 0 82px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff20;border-radius:50%;right:-150px;top:-130px}
+.heroGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:900;text-transform:uppercase;color:#58a6ff}.hero h1{font-size:58px;line-height:1.02;margin:16px 0}.hero h1 span{color:#8ec7ff}.hero p{font-size:18px;color:#d8e6f6;max-width:690px}.actions{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.heroCard{background:#fff;color:var(--ink);border-radius:18px;padding:25px;box-shadow:0 25px 65px #0004;position:relative;z-index:2}.heroCard h3{margin:0 0 10px}.metric{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}.metric b{font-size:21px}.tag{display:inline-block;background:#edf8f3;color:var(--green);font-size:10px;font-weight:900;padding:5px 8px;border-radius:6px}
+section{padding:70px 0}.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:28px}.sectionHead h2{font-size:33px;line-height:1.15;margin:6px 0}.muted{color:var(--muted)}.sectionHead>p{max-width:590px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:25px}.icon{width:43px;height:43px;border-radius:11px;background:#edf4ff;color:var(--blue);display:grid;place-items:center;font-weight:900;font-size:19px}.card h3{margin:14px 0 7px}.card p{font-size:14px;color:var(--muted)}
+.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:25px;align-items:stretch}.info{background:var(--navy);color:#fff;border-radius:16px;padding:30px}.info p{color:#cbd9e8}.info ul{padding-left:18px;color:#dbe6f2}.dashboard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}.dashHead{padding:19px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.dashBody{padding:22px}.row{display:grid;grid-template-columns:145px 1fr 55px;gap:13px;align-items:center;margin:17px 0}.bar{height:10px;background:#e9edf3;border-radius:20px}.bar i{display:block;height:100%;background:var(--blue);border-radius:20px}
+.map{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.mapbox{min-height:310px;background:linear-gradient(145deg,#e8f0fa,#f9fbfd);border:1px solid var(--line);border-radius:16px;display:grid;place-items:center;text-align:center;color:#526176}.mapshape{font-size:100px;color:#9bb9d8}.table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.table th,.table td{text-align:left;padding:14px;border-bottom:1px solid var(--line);font-size:13px}.table th{background:#f8fafc}
+.formgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}.form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:25px}.form label{display:block;font-size:13px;font-weight:800;margin:15px 0 6px}.form input,.form select,.form textarea{width:100%;padding:11px;border:1px solid #d7dee8;border-radius:8px;font:inherit}.form textarea{min-height:85px;resize:vertical}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:21px}.stat b{font-size:28px;color:var(--navy)}.stat small{display:block;color:var(--muted)}.note{margin-top:18px;background:#f8fafc;border-radius:9px;padding:14px;font-size:12px;color:#667085}
+footer{background:#091b31;color:#dbe6f2;padding:40px 0}.foot{display:flex;justify-content:space-between;gap:20px}.foot b{letter-spacing:3px}
+.mobile{display:none}
+@media(max-width:850px){.links{display:none}.mobile{display:block}.heroGrid,.split,.map,.formgrid{grid-template-columns:1fr}.cards,.stats{grid-template-columns:1fr 1fr}.hero h1{font-size:45px}.sectionHead{display:block}}
+@media(max-width:550px){.cards,.stats{grid-template-columns:1fr}.container{padding:0 17px}.hero h1{font-size:39px}.row{grid-template-columns:105px 1fr 45px}.foot{display:block}}
 </style>
 </head>
 <body>
-<div class="app">
-<header class="top">
-  <div class="brand">⬡ ELEKTORALIS<small>Pusat Kajian Elektoral & Survei Politik</small></div>
-  <nav class="nav">
-    <button class="navbtn active" data-page="home">Beranda</button>
-    <button class="navbtn" data-page="survey">Survei</button>
-    <button class="navbtn" data-page="map">Peta Elektoral</button>
-    <button class="navbtn" data-page="admin">Dashboard</button>
-    <button class="navbtn" data-page="candidate">Kandidat</button>
-  </nav>
-  <button class="login">Masuk / Daftar</button>
-</header>
 
-<section id="home" class="page active">
-  <div class="hero">
-    <div>
-      <h1>Data Elektoral.<br>Analisis Objektif.<br>Strategi Terukur.</h1>
-      <p>Platform riset politik dan elektabilitas dengan data survei, analisis mendalam, dan pemetaan elektoral yang komprehensif.</p>
-      <div class="actions"><button class="primary" onclick="go('survey')">Ikuti Survei</button><button class="secondary" onclick="go('admin')">Lihat Dashboard</button></div>
-    </div>
-    <div class="survey-card"><h3>Survei Terbaru</h3><p>Survei Elektabilitas Caleg DPRD DKI Jakarta 2029 · Dapil Jakarta Selatan 8</p>
-      <div class="stat"><span>Responden</span><b>1.000</b></div><div class="stat"><span>Margin of Error</span><b>±3,1%</b></div><div class="stat"><span>Periode</span><b>September 2026</b></div>
-      <button class="secondary" style="margin-top:18px;width:100%" onclick="go('candidate')">Lihat Detail →</button>
-    </div>
-  </div>
-  <div class="features">
-    <div class="feature"><div>📊</div><h3>Survei Elektabilitas</h3><p>Mengukur popularitas, awareness, dan potensi suara calon.</p></div>
-    <div class="feature"><div>🗺️</div><h3>Peta Elektoral</h3><p>Pemetaan dukungan hingga level wilayah dan TPS.</p></div>
-    <div class="feature"><div>📈</div><h3>Analisis Kompetitor</h3><p>Strategi berbasis data persaingan dan pasar suara.</p></div>
-    <div class="feature"><div>🎯</div><h3>Rekomendasi Strategi</h3><p>Insight untuk pengambilan keputusan yang lebih tepat.</p></div>
-  </div>
+<nav><div class="container navin">
+<a class="logo" href="#home">DRISHTI<small>RESEARCH • SURVEY • PUBLIC INSIGHT</small></a>
+<div class="links">
+<a href="#riset">Riset</a><a href="#survei">Survei</a><a href="#electoral">Electoral</a><a href="#publikasi">Publikasi</a><a href="#metodologi">Metodologi</a>
+<button class="btn" onclick="go('survei')">Mulai Survei</button>
+</div>
+<div class="mobile">☰</div>
+</div></nav>
+
+<main id="home">
+<section class="hero">
+<div class="container heroGrid">
+<div>
+<div class="eyebrow">Independent Research Platform</div>
+<h1>Melihat Publik<br><span>Melalui Data.</span></h1>
+<p>DRISHTI RESEARCH menghadirkan riset opini publik, electoral research, pemetaan isu, dan analisis data untuk membantu memahami arah masyarakat secara lebih terukur.</p>
+<div class="actions"><button class="btn" onclick="go('riset')">Eksplorasi Riset</button><button class="btn light" onclick="go('electoral')">Lihat Dashboard</button></div>
+<p style="font-size:11px;color:#adc0d4;margin-top:23px">Prototype website. Seluruh kandidat, angka, dan indikator yang tampil adalah DATA SIMULASI.</p>
+</div>
+<div class="heroCard">
+<h3>Public Insight — Simulasi</h3>
+<div class="metric"><span>Public Awareness</span><b>68%</b></div>
+<div class="metric"><span>Issue Salience</span><b>54%</b></div>
+<div class="metric"><span>Candidate Preference</span><b>31%</b></div>
+<div class="metric"><span>Sample</span><b>1.200</b></div>
+<span class="tag">SIMULATION DATA</span>
+</div>
+</div>
 </section>
 
-<section id="survey" class="page">
-<div class="container form-wrap"><div class="title"><div><h2>Ikuti Survei</h2><p class="muted">Jawaban Anda membantu kami memahami aspirasi masyarakat secara akurat.</p></div></div>
-<div class="steps"><div class="step active">1. Profil Responden</div><div class="step">2. Pengetahuan Politik</div><div class="step">3. Elektabilitas</div><div class="step">4. Persepsi & Isu</div><div class="step">5. Selesai</div></div>
-<div class="card"><h3>Profil Responden</h3><p class="muted">Mohon isi data di bawah dengan jujur dan lengkap.</p>
-<div class="form-grid">
-<div class="field"><label>Kecamatan *</label><select><option>Pilih Kecamatan</option><option>Kebayoran Lama</option><option>Pesanggrahan</option><option>Jagakarsa</option><option>Pasar Minggu</option></select></div>
-<div class="field"><label>Kelurahan *</label><select><option>Pilih Kelurahan</option></select></div>
-<div class="field"><label>Usia *</label><select><option>Pilih Usia</option><option>17–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55+</option></select></div>
-<div class="field"><label>Jenis Kelamin *</label><select><option>Pilih</option><option>Laki-laki</option><option>Perempuan</option></select></div>
-<div class="field"><label>Pendidikan</label><select><option>Pilih Pendidikan</option><option>SMA</option><option>D3</option><option>S1</option><option>S2/S3</option></select></div>
-<div class="field"><label>Pekerjaan</label><select><option>Pilih Pekerjaan</option><option>Pelajar/Mahasiswa</option><option>Karyawan</option><option>Wirausaha</option><option>Lainnya</option></select></div>
-</div><div class="notice" style="margin-top:20px">🔒 Data hanya digunakan untuk kepentingan riset dan analisis statistik.</div>
-<button class="primary" style="margin-top:20px" onclick="alert('Prototype: tahap berikutnya akan membuka pertanyaan pengetahuan politik.')">Selanjutnya →</button>
+<section id="riset"><div class="container">
+<div class="sectionHead"><div><div class="eyebrow">What We Study</div><h2>Riset untuk memahami realitas.</h2></div><p class="muted">Pendekatan DRISHTI menghubungkan suara masyarakat dengan konteks wilayah, isu, dan data sehingga hasil riset tidak berhenti pada angka.</p></div>
+<div class="cards">
+<div class="card"><div class="icon">01</div><h3>Public Opinion</h3><p>Persepsi, aspirasi, kepuasan publik, kepercayaan terhadap institusi, serta isu yang dianggap paling penting oleh masyarakat.</p></div>
+<div class="card"><div class="icon">02</div><h3>Electoral Research</h3><p>Awareness, top of mind, elektabilitas, preferensi, undecided voters, basis dukungan, dan peta persaingan.</p></div>
+<div class="card"><div class="icon">03</div><h3>Social & Policy</h3><p>Riset sosial dan kebijakan untuk membaca kebutuhan masyarakat serta respons publik terhadap program pemerintah.</p></div>
+</div>
+</div></section>
+
+<section id="electoral" style="background:#eef3f9"><div class="container">
+<div class="sectionHead"><div><div class="eyebrow">Electoral Intelligence</div><h2>Dashboard pemetaan elektoral.</h2></div><p class="muted">Contoh tampilan analisis yang dapat dikembangkan untuk wilayah nasional hingga tingkat kecamatan/kelurahan.</p></div>
+<div class="split">
+<div class="info"><h2>Election Mapping</h2><p>Data survei dapat dipadukan dengan pemetaan wilayah dan indikator pemilih untuk melihat distribusi dukungan secara lebih detail.</p>
+<ul><li>Candidate awareness</li><li>Electability & preference</li><li>Issue mapping</li><li>Segmentasi demografis</li><li>Pemetaan wilayah</li></ul><span class="tag">DEMO</span></div>
+<div class="dashboard"><div class="dashHead"><b>Electoral Preference — Simulasi</b><span class="tag">SIMULASI</span></div><div class="dashBody">
+<div class="row"><b>Kandidat A</b><div class="bar"><i style="width:31%"></i></div><b>31%</b></div>
+<div class="row"><b>Kandidat B</b><div class="bar"><i style="width:25%"></i></div><b>25%</b></div>
+<div class="row"><b>Kandidat C</b><div class="bar"><i style="width:18%"></i></div><b>18%</b></div>
+<div class="row"><b>Kandidat D</b><div class="bar"><i style="width:12%"></i></div><b>12%</b></div>
+<div class="row"><b>Belum menentukan</b><div class="bar"><i style="width:14%"></i></div><b>14%</b></div>
 </div></div>
-</section>
+</div></div></section>
 
-<section id="map" class="page">
-<div class="container"><div class="title"><div><h2>Peta Elektoral</h2><p class="muted">Contoh pemetaan kekuatan elektoral per wilayah.</p></div><select style="padding:10px;border:1px solid var(--line);border-radius:7px"><option>Jakarta Selatan 8</option></select></div>
-<div class="grid g2"><div class="card"><h3>Indeks Kekuatan Wilayah</h3>
-<div style="margin:25px 0"><b>Kebayoran Lama</b><div class="bar"><i style="width:82%"></i></div><small class="muted">82 / 100</small></div>
-<div style="margin:25px 0"><b>Pesanggrahan</b><div class="bar"><i style="width:67%"></i></div><small class="muted">67 / 100</small></div>
-<div style="margin:25px 0"><b>Pasar Minggu</b><div class="bar red"><i style="width:48%"></i></div><small class="muted">48 / 100</small></div>
-<div style="margin:25px 0"><b>Jagakarsa</b><div class="bar"><i style="width:61%"></i></div><small class="muted">61 / 100</small></div></div>
-<div class="card"><h3>Visualisasi Wilayah</h3><div style="height:320px;border-radius:12px;background:#e8f1fa;display:flex;align-items:center;justify-content:center;color:#4f6b86;text-align:center">🗺️<br>Area peta interaktif<br><small>Prototype — dapat dihubungkan ke peta GIS</small></div></div></div></div>
-</section>
+<section><div class="container">
+<div class="sectionHead"><div><div class="eyebrow">Geographic Insight</div><h2>Pemetaan wilayah — contoh.</h2></div><p class="muted">Dashboard dapat dikembangkan dari tingkat provinsi hingga unit wilayah yang lebih kecil, sesuai desain sampling dan ketersediaan data.</p></div>
+<div class="map"><div class="mapbox"><div><div class="mapshape">◈</div><b>INTERACTIVE MAP</b><br><small>Area peta akan terhubung ke data survei.</small></div></div>
+<table class="table"><tr><th>Wilayah</th><th>Awareness</th><th>Preferensi</th></tr><tr><td>Wilayah A</td><td>72%</td><td>34%</td></tr><tr><td>Wilayah B</td><td>65%</td><td>29%</td></tr><tr><td>Wilayah C</td><td>59%</td><td>24%</td></tr><tr><td>Wilayah D</td><td>51%</td><td>19%</td></tr></table></div>
+</div></section>
 
-<section id="admin" class="page">
-<div class="side-layout"><aside class="side"><b style="padding:12px;display:block">ADMIN PANEL</b><button class="active">▣ Dashboard</button><button>♙ Data Responden</button><button>▤ Survei</button><button>⌖ Peta Elektoral</button><button>▥ Laporan</button><button>⚙ Pengaturan</button></aside>
-<main class="dash"><div class="title"><div><h2>Dashboard Admin</h2><p class="muted">Ringkasan data survei dan kondisi elektoral terkini.</p></div><button class="primary">Export Laporan</button></div>
-<div class="grid g4"><div class="card metric"><span class="muted">Total Responden</span><strong>12.487</strong><span class="up">↑ 12% dari periode lalu</span></div><div class="card metric"><span class="muted">Laki-laki</span><strong>5.982</strong><span class="muted">47,9%</span></div><div class="card metric"><span class="muted">Perempuan</span><strong>6.505</strong><span class="muted">52,1%</span></div><div class="card metric"><span class="muted">Sebaran Wilayah</span><strong>5</strong><span class="muted">Provinsi</span></div></div>
-<div class="grid g2" style="margin-top:18px"><div class="card"><h3>Tren Elektabilitas</h3><div class="chart"><div class="col" style="height:48%"><span>Jul</span></div><div class="col" style="height:57%"><span>Ags</span></div><div class="col" style="height:68%"><span>Sep</span></div><div class="col" style="height:76%"><span>Okt</span></div><div class="col" style="height:86%"><span>Nov</span></div></div></div>
-<div class="card"><h3>Sebaran Responden</h3><table><tr><th>Wilayah</th><th>Responden</th><th>%</th></tr><tr><td>DKI Jakarta</td><td>5.280</td><td>42,3%</td></tr><tr><td>Jawa Barat</td><td>2.340</td><td>18,7%</td></tr><tr><td>Jawa Tengah</td><td>1.560</td><td>12,5%</td></tr><tr><td>Jawa Timur</td><td>1.290</td><td>10,3%</td></tr></table></div></div>
-<div class="card" style="margin-top:18px"><h3>Hasil Survei per Dapil</h3><table><tr><th>Dapil</th><th>Responden</th><th>Elektabilitas Tertinggi</th><th>MoE</th></tr><tr><td>Jakarta Selatan 8</td><td>2.841</td><td>Yuke Yurike (14,8%)</td><td>±3,2%</td></tr><tr><td>Jakarta Barat</td><td>2.547</td><td>Kandidat B (14,7%)</td><td>±3,5%</td></tr><tr><td>Jakarta Timur</td><td>2.102</td><td>Kandidat C (12,4%)</td><td>±3,6%</td></tr></table></div>
-</main></div>
-</section>
-
-<section id="candidate" class="page">
-<div class="container"><div class="title"><div><h2>Dashboard Kandidat</h2><p class="muted">Contoh tampilan laporan elektoral kandidat.</p></div><select style="padding:10px;border:1px solid var(--line);border-radius:7px"><option>Jakarta Selatan 8</option></select></div>
-<div class="card candidate"><div class="avatar">YY</div><div><h2 style="margin:0">Yuke Yurike</h2><span class="tag">Contoh Data · PDIP</span><p class="muted" style="margin-bottom:0">Dapil Jakarta Selatan 8</p></div></div>
-<div class="grid g4" style="margin-top:18px"><div class="card metric"><span class="muted">Awareness</span><strong>62%</strong><span class="up">↑ 8%</span></div><div class="card metric"><span class="muted">Elektabilitas</span><strong>14,8%</strong><span class="up">↑ 2,6%</span></div><div class="card metric"><span class="muted">Top of Mind</span><strong>8,7%</strong><span class="up">↑ 1,9%</span></div><div class="card metric"><span class="muted">Strong Supporter</span><strong>5,4%</strong><span class="up">↑ 1,2%</span></div></div>
-<div class="grid g2" style="margin-top:18px"><div class="card"><h3>Tren Elektabilitas</h3><div class="chart"><div class="col" style="height:55%"><span>Jul 11,2%</span></div><div class="col" style="height:65%"><span>Ags 12,3%</span></div><div class="col" style="height:80%"><span>Sep 14,8%</span></div></div></div><div class="card"><h3>Perbandingan Kompetitor</h3><table><tr><th>Kandidat</th><th>Elektabilitas</th><th>Awareness</th></tr><tr><td>Yuke Yurike</td><td>14,8%</td><td>62%</td></tr><tr><td>Kandidat B</td><td>16,7%</td><td>66%</td></tr><tr><td>Kandidat C</td><td>12,4%</td><td>56%</td></tr><tr><td>Kandidat D</td><td>9,8%</td><td>43%</td></tr></table></div></div>
-<div class="card" style="margin-top:18px"><h3>Rekomendasi Analisis</h3><div class="notice">Contoh: awareness sudah relatif tinggi, tetapi masih terdapat jarak antara tingkat pengenalan dan elektabilitas. Area prioritas dapat ditentukan setelah data mentah, weighting, dan metodologi survei diverifikasi.</div></div>
+<section id="survei" style="background:#fff"><div class="container">
+<div class="sectionHead"><div><div class="eyebrow">Online Survey</div><h2>Contoh pengalaman responden.</h2></div><p class="muted">Form ini merupakan demo antarmuka. Tidak menyimpan atau mengirim data ke server.</p></div>
+<div class="formgrid"><div class="form"><h3>Profil Responden</h3>
+<label>Usia</label><select><option>17–24 tahun</option><option>25–34 tahun</option><option>35–44 tahun</option><option>45–54 tahun</option><option>55 tahun ke atas</option></select>
+<label>Jenis Kelamin</label><select><option>Laki-laki</option><option>Perempuan</option><option>Tidak ingin menjawab</option></select>
+<label>Wilayah</label><input placeholder="Provinsi / Kota / Kecamatan">
+<label>Status</label><select><option>Responden umum</option><option>Tokoh masyarakat</option><option>Pelaku usaha</option><option>Komunitas</option></select>
 </div>
-</section>
-</div>
-<script>
-function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(page).classList.add('active');document.querySelectorAll('.navbtn').forEach(x=>x.classList.toggle('active',x.dataset.page===page));window.scrollTo(0,0)}
-document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>go(b.dataset.page));
-</script>
+<div class="form"><h3>Persepsi Publik</h3>
+<label>Seberapa mengenal Kandidat A?</label><select><option>Sangat mengenal</option><option>Cukup mengenal</option><option>Pernah mendengar</option><option>Tidak mengenal</option></select>
+<label>Jika pemilihan dilakukan hari ini, siapa yang paling mungkin dipilih?</label><select><option>Kandidat A</option><option>Kandidat B</option><option>Kandidat C</option><option>Kandidat D</option><option>Belum menentukan</option></select>
+<label>Isu paling penting bagi Anda?</label><textarea placeholder="Ekonomi, pelayanan publik, pendidikan, kesehatan, lingkungan, dll."></textarea>
+<br><br><button class="btn" onclick="alert('Terima kasih. Ini hanya simulasi dan tidak mengirim data.')">Kirim Jawaban</button>
+</div></div></div></section>
+
+<section id="publikasi"><div class="container">
+<div class="sectionHead"><div><div class="eyebrow">Research Publication</div><h2>Contoh katalog penelitian.</h2></div><p class="muted">Bagian ini nantinya dapat berisi hasil riset, ringkasan metodologi, dan publikasi yang dapat diakses publik.</p></div>
+<div class="cards"><div class="card"><span class="tag">DEMO</span><h3>Public Sentiment 2026</h3><p>Contoh laporan mengenai persepsi masyarakat terhadap isu sosial dan pelayanan publik.</p><button class="btn light" onclick="alert('Laporan demo belum tersedia.')">Read Summary</button></div>
+<div class="card"><span class="tag">DEMO</span><h3>Electoral Landscape</h3><p>Contoh pemetaan awareness dan preferensi kandidat berdasarkan wilayah survei.</p><button class="btn light" onclick="alert('Laporan demo belum tersedia.')">Read Summary</button></div>
+<div class="card"><span class="tag">DEMO</span><h3>Policy Perception Index</h3><p>Contoh indeks persepsi publik terhadap isu kebijakan strategis.</p><button class="btn light" onclick="alert('Laporan demo belum tersedia.')">Read Summary</button></div></div>
+</div></section>
+
+<section id="metodologi" style="background:#fff"><div class="container">
+<div class="sectionHead"><div><div class="eyebrow">Methodology</div><h2>Transparansi menjadi fondasi.</h2></div><p class="muted">Setiap publikasi riset nyata perlu menjelaskan metodologi agar pembaca dapat menilai kualitas dan batasan hasilnya.</p></div>
+<div class="stats"><div class="stat"><b>1.200</b><small>Contoh sample</small></div><div class="stat"><b>95%</b><small>Contoh confidence level</small></div><div class="stat"><b>±2,8%</b><small>Contoh margin of error</small></div><div class="stat"><b>Netral</b><small>Positioning riset</small></div></div>
+<div class="note"><b>Disclaimer:</b> seluruh angka, kandidat, wilayah, dan hasil yang ditampilkan dalam prototype ini adalah data simulasi untuk demonstrasi antarmuka. Dalam riset aktual, DRISHTI perlu menampilkan periode survei, jumlah dan teknik sampling, cakupan wilayah, metode pengumpulan data, sponsor/pemberi dana bila relevan, serta batasan penelitian.</div>
+</div></section>
+</main>
+
+<footer><div class="container foot"><div><b>DRISHTI RESEARCH</b><br><small>Research • Survey • Public Insight</small></div><div><small>Melihat Publik Melalui Data.</small></div></div></footer>
+<script>function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}</script>
 </body></html>
